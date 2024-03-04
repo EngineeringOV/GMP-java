@@ -9,8 +9,7 @@ java: jni org/dfdeshom/math/*.java libgmpjava jni
 	javac $(JAVA_FLAGS) org/dfdeshom/math/GMP.java org/dfdeshom/math/Pointer32.java org/dfdeshom/math/Pointer64.java	
 
 jni:
-	javac $(JAVA_FLAGS) org/dfdeshom/math/GMP.java
-	javah -jni -d include org.dfdeshom.math.GMP 
+	javac $(JAVA_FLAGS) -h ./include/ org/dfdeshom/math/GMP.java
 
 libgmpjava:GMP.c libjcl
 	gcc $(Includes)  GMP.c -o libnativegmp.so $(LIBS) $(CFLAGS)
